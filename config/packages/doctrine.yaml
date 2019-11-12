@@ -1,22 +1,21 @@
 doctrine:
     dbal:
         # configure these for your database server
-        driver: 'pdo_mysql'
-        server_version: '5.7'
-        charset: utf8mb4
-        default_table_options:
-            charset: utf8mb4
-            collate: utf8mb4_unicode_ci
-
+        driver: 'pdo_pgsql'
+        charset: utf8
         url: '%env(resolve:DATABASE_URL)%'
+        server_version: 11.2
     orm:
         auto_generate_proxy_classes: true
         naming_strategy: doctrine.orm.naming_strategy.underscore
         auto_mapping: true
         mappings:
-            App:
+            Draw:
                 is_bundle: false
                 type: annotation
-                dir: '%kernel.project_dir%/src/Entity'
-                prefix: 'App\Entity'
-                alias: App
+                prefix: 'App\Core\Draw\Entity'
+                dir: '%kernel.project_dir%/src/Core/Draw/Entity'
+            Number:
+                type: annotation
+                prefix: 'App\Core\Number\Entity'
+                dir: '%kernel.project_dir%/src/Core/Number/Entity'
