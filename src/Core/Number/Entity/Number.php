@@ -34,7 +34,7 @@ class Number
     private $isStar;
 
     /**
-     * @ORM\OneToOne(targetEntity="App\Core\Draw\Entity\Draw", inversedBy="numbers")
+     * @ORM\ManyToOne(targetEntity="App\Core\Draw\Entity\Draw", inversedBy="numbers")
      */
     private $draw;
 
@@ -42,7 +42,7 @@ class Number
     {
         $this->value = $value;
         $this->position = $position;
-        $this->isStart = $isStar;
+        $this->isStar = $isStar;
         $this->draw = $draw;
     }
 
