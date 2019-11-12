@@ -19,7 +19,7 @@ class Draw
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="datetimetz", length=255)
      */
     private $date;
 
@@ -28,10 +28,10 @@ class Draw
      */
     private $numbers;
 
-    public function __construct($date, ...$numbers)
+    public function __construct($date)
     {
         $this->date = $date;
-        $this->numbers = $numbers;
+
     }
 
     public function getDate()
@@ -42,5 +42,10 @@ class Draw
     public function getNumbers()
     {
         return $this->numbers;
+    }
+
+    public function setNumbers($numbers)
+    {
+        $this->numbers = $numbers;
     }
 }
