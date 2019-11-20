@@ -25,3 +25,11 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+
+    App\Core\Draw\Repository\DrawRepository:
+        arguments:
+            - '@doctrine.orm.default_entity_manager'
+
+    App\Core\Number\Repository\NumberRepository:
+        arguments:
+            - '@doctrine.orm.default_entity_manager'

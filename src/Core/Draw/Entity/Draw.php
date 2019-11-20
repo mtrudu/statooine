@@ -19,7 +19,7 @@ class Draw
     private $id;
 
     /**
-     * @ORM\Column(type="datetimetz", length=255)
+     * @ORM\Column(type="date", length=255)
      */
     private $date;
 
@@ -32,6 +32,11 @@ class Draw
     {
         $this->date = $date;
 
+    }
+
+    public function getId()
+    {
+        return $this->id;
     }
 
     public function getDate()

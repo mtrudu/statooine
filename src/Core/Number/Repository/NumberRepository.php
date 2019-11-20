@@ -5,13 +5,30 @@ declare(strict_types=1);
 namespace App\Core\Number\Repository;
 
 use App\Core\Number\Entity\Number;
-use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
-use Doctrine\Common\Persistence\ManagerRegistry;
+use Doctrine\ORM\EntityManager;
 
-class NumberRepository extends ServiceEntityRepository
+class NumberRepository
 {
-    public function __construct(ManagerRegistry $managerRegistry)
+    private $em;
+
+    public function __construct(EntityManager $em)
     {
-        parent::__construct($managerRegistry, Number::class);
+        $this->em = $em;
+    }
+
+    public function findByDrawId(int $id)
+    {
+        return $this->getRepository()
+            ->where('n.draw = :id')
+            ->setParameter('id', $id)
+            ->getQuery()
+            ->getResult();
+    }
+
+    private function getRepository()
+    {
+        return $this->em->createQueryBuilder()
+            ->select('n')
+            ->from(Number::class, 'n');
     }
 }
