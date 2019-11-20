@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20191112162049 extends AbstractMigration
+final class Version20191120154723 extends AbstractMigration
 {
     public function getDescription() : string
     {
@@ -24,9 +24,9 @@ final class Version20191112162049 extends AbstractMigration
 
         $this->addSql('CREATE SEQUENCE draw_id_seq INCREMENT BY 1 MINVALUE 1 START 1');
         $this->addSql('CREATE SEQUENCE number_id_seq INCREMENT BY 1 MINVALUE 1 START 1');
-        $this->addSql('CREATE TABLE draw (id INT NOT NULL, date VARCHAR(255) NOT NULL, PRIMARY KEY(id))');
+        $this->addSql('CREATE TABLE draw (id INT NOT NULL, date TIMESTAMP(0) WITH TIME ZONE NOT NULL, PRIMARY KEY(id))');
         $this->addSql('CREATE TABLE number (id INT NOT NULL, draw_id INT DEFAULT NULL, value INT NOT NULL, position INT NOT NULL, is_star BOOLEAN NOT NULL, PRIMARY KEY(id))');
-        $this->addSql('CREATE UNIQUE INDEX UNIQ_96901F546FC5C1B8 ON number (draw_id)');
+        $this->addSql('CREATE INDEX IDX_96901F546FC5C1B8 ON number (draw_id)');
         $this->addSql('ALTER TABLE number ADD CONSTRAINT FK_96901F546FC5C1B8 FOREIGN KEY (draw_id) REFERENCES draw (id) NOT DEFERRABLE INITIALLY IMMEDIATE');
     }
 
