@@ -1,0 +1,18 @@
+version: '3'
+services:
+  app:
+    build: .docker
+    container_name: statooine
+    ports:
+      - 88:81
+    volumes:
+      - .:/var/www/symfony
+
+  postgres:
+    image: postgres:13.2-alpine
+    ports:
+      - 5433:5432
+    environment:
+      POSTGRES_DB: statooine
+      POSTGRES_USER: statooine
+      POSTGRES_PASSWORD: statooine
