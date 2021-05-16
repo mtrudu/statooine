@@ -1,0 +1,10 @@
+Number:
+    type: object
+    config:
+        fields:
+            value:
+                type: "Int!"
+            position:
+                type: "Int!"
+            isStar:
+                type: "Boolean!"
