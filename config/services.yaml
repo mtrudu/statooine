@@ -42,3 +42,11 @@ services:
 
     App\UI\Api\GraphQL\Number\NumberResolver:
         class: App\UI\Api\GraphQL\Number\NumberResolver
+
+    App\UI\Api\GraphQL\Number\NumberResolverMap:
+        tags:
+            - { name: overblog_graphql.resolver_map, schema: default }
+
+    App\UI\Api\GraphQL\Draw\DrawResolverMap:
+        tags:
+            - { name: overblog_graphql.resolver_map, schema: default }

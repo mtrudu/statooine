@@ -24,6 +24,13 @@ final class NumberResolver
         return $this->mapNumberToNumberViewModel($numbers);
     }
 
+    public function getNumbersByDrawId(int $drawId)
+    {
+        $numbers = $this->numberRepository->findByDrawId($drawId);
+
+        return $this->mapNumberToNumberViewModel($numbers);
+    }
+
     private function mapNumberToNumberViewModel($numbers): array
     {
         return array_map(
