@@ -6,23 +6,31 @@ namespace App\UI\Api\GraphQL\Draw;
 
 class DrawViewModel
 {
-    private $id;
+    private int $id;
 
-    private $date;
+    private string $date;
 
-    public function __construct($id, $date)
+    private array $numbers = [];
+
+    public function __construct(int $id, \DateTime $date, array $numbers)
     {
         $this->id = $id;
         $this->date = $date->format('Y-m-d');
+        $this->numbers = $numbers;
     }
 
-    public function getId()
+    public function getId(): int
     {
         return $this->id;
     }
 
-    public function getDate()
+    public function getDate(): string
     {
         return $this->date;
+    }
+
+    public function getNumbers(): array
+    {
+        return $this->numbers;
     }
 }

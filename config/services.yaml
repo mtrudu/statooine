@@ -40,3 +40,5 @@ services:
         tags:
             - { name: overblog_graphql.resolver, alias: "getDrawByDate", method: "getDrawByDate" }
 
+    App\UI\Api\GraphQL\Number\NumberResolver:
+        class: App\UI\Api\GraphQL\Number\NumberResolver
