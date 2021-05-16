@@ -1,0 +1,10 @@
+Query:
+    type: object
+    config:
+        fields:
+            drawByDate:
+                type: Draw
+                args:
+                    date:
+                        description: 'Date'
+                        type: 'String!'
