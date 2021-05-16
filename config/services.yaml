@@ -31,3 +31,12 @@ services:
     App\Core\Number\Repository\NumberRepository:
         arguments:
             - '@doctrine.orm.default_entity_manager'
+
+
+    App\UI\Api\GraphQL\Draw\DrawResolver:
+        class: App\UI\Api\GraphQL\Draw\DrawResolver
+        arguments:
+            - '@App\Core\Draw\Repository\DrawRepository'
+        tags:
+            - { name: overblog_graphql.resolver, alias: "getDrawByDate", method: "getDrawByDate" }
+

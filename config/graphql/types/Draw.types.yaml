@@ -5,5 +5,5 @@ Draw:
             date:
                 type: "String!"
             numbers:
-                type: "[Number!]!"
+                type: "[Number!]"
 

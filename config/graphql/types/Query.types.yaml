@@ -8,3 +8,5 @@ Query:
                     date:
                         description: 'Date'
                         type: 'String!'
+                resolve: '@=resolver("getDrawByDate", [args["date"]])'
+
