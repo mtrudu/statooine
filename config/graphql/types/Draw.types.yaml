@@ -1,0 +1,9 @@
+Draw:
+    type: object
+    config:
+        fields:
+            date:
+                type: "String!"
+            numbers:
+                type: "[Number!]!"
+
